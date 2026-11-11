@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<!--
+  ==========================================================
+  ==========================================================
+  How to use this template:
+  1. Replace all text inside [SQUARE BRACKETS] with your own information....(✓)
+  2. Change the profile picture: put your image in this folder and update
+     the src attribute of the <img> tag (search for "PROFILE PICTURE" below)....(✓)
+  3. Add or remove jobs, education and skills by copying or deleting
+     whole blocks (they are marked with comments)....(✓)
+  4. Change the colors in styles.css – the color variables (:root) are at the top....(✓)
+  5. Open the page with "Live Server" in VS Code to see your changes live....(✓)
+
+  Tip: Comments like this one are not visible on the page.
+  Feel free to remove them when you are done.
+  ==========================================================
+-->
+<!-- ÄNDRING : Changed the heading colour -->
+<!-- ÄNDRING : Updated the navigation menu -->
+<!-- ÄNDRING : Added my own profile picture -->
+<!-- ÄNDRING : Added a CV download button -->
+<!-- ÄNDRING : Added list items to each competence section -->
+<!-- ÄNDRING : Added boxes around text using span tags -->
+<!-- ÄNDRING : Updated navigation links and references -->
+<!-- ÄNDRING : Added a link to another HTML page using href -->
+<!-- ÄNDRING : Added a banner to the home page and left column -->
+<!-- ÄNDRING : Added a list of my main personal traits -->
+<!-- ÄNDRING : Added a timeline and an active-item class for my current work experience -->
+<!-- ÄNDRING : Added a timeline and an active-item class for my current education -->
+<!-- ÄNDRING : Updated the JavaScript code -->
+<!-- ÄNDRING : Added JavaScript functionality for buttons on the second HTML page -->
+ <!-- ÄNDRING : Added Pages folder to the main directory to run the second page and 
+  fix the paths to right pages on Live Sever -->
+
+<html lang="en">
+   <!-- ÄNDRING : Changed the heading colour
+    -->
+  <head>
+    <style>
+      h1{
+        color: #e3ecd9;} </style>
+
+    <!-- TRACKING / ANALYTICS (optional)
+      Paste your own tracking code here, e.g. Matomo Tag Manager
+      or Google Tag Manager. ALWAYS use your own container – never someone else's.
+    -->
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- The page title shown in the browser tab -->
+    <title>Faiza Sultana – CV</title>
+    <meta name="description" content="[One sentence about you – shown e.g. in Google search results]" />
+
+    <!-- W3.CSS – a ready-made CSS framework that gives us layout and classes (w3-...) -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <!-- The Montserrat font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Your own stylesheet – this is where you make your design changes -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Feather Icons – the icons for social media and the download button -->
+    <script src="https://unpkg.com/feather-icons@4.28.0/dist/feather.min.js"></script>
+  </head>
+
+  <body>
+    <section>
+      <!-- ======================================================
+           MOBILE NAVIGATION (only visible on small screens)
+           ====================================================== -->
+                    <!-- ÄNDRING : updated navigaiton -->
+
+     <div class="w3-container w3-padding-16 w3-border-bottom w3-hide-medium w3-hide-large">
+        
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="toggleNavigation()">#9776;</a>
+      </div>
+      
+      <div id="mobile-nav" class="w3-bar-block w3-hide w3-hide-large w3-hide-medium w3-sticky">
+        <a href="#about" class="nav-link w3-bar-item w3-button w3-center w3-hover-none w3-border-white w3-bottombar" onclick="toggleNavigation()">Kort Om Mig</a>
+        <a href="#resume" class="nav-link w3-bar-item w3-button w3-center w3-hover-none w3-border-white w3-bottombar" onclick="toggleNavigation()">RESUME</a>
+        <a href="#contact" class="nav-link w3-bar-item w3-button w3-center w3-hover-none w3-border-white w3-bottombar" onclick="toggleNavigation()">CONTACT</a>
+      </div>
+
+      <!-- ======================================================
+           LEFT COLUMN: PICTURE, SOCIAL MEDIA AND CV BUTTON
+           ====================================================== -->
+<section class="image-section">
+<div class="profile-header">
+    <div class="profile-logo">fs.</div>
+<!-- ÄNDRING : Added my own profile picture -->
+ <!-- ÄNDRING : Added Resume download button -->
+   <img
+    src="https://media.licdn.com/dms/image/v2/D4D03AQG8zBdw67Heiw/profile-displayphoto-shrink_800_800/B4DaC.2ZkVHwAc-/0/1789908326912?e=1792627200&v=beta&t=EYHg2EWh4ZMW36Q36wmAbkNoUtm2OAeYxd8eIqenAw0"
+    alt="Profile picture of Faiza Sultana"
+    class="profile-img w3-circle w3-border"
+  >
+  <h1>Faiza Sultana</h1>
+    <p class="subtitle">Student inom digital analys</p>
+
+    <a href="Faiza Sultana - Resume.pdf" class="download-btn" >Ladda ner CV</a>
+
+  </div>
+  
+
+
+  <!-- CONTACT INFORMATION -->
+
+  <!-- Änderning: added the contact info into left column with icon -->
+  <!-- Änderning: added dirct contact via email button (Direct E-post) -->
+  
+      <div class="contact-info">
+    <h3>Kontakt</h3>
+    <p><span class="icon">📧</span>sultanafaiza18@gmail.com</p>
+    <p><span class="icon">📞</span> +46 76 006 98 33</p>
+    <p><span class="icon">📍</span> Borås Sverige</p>
+  </div>
+  <a href="mailto:sultanafaiza18@gmail.com?subject=Kontakt från CV" class="contact-btn">
+  Direkt E-post →
+</a>
+  <!-- SOCIAL MEDIA -->
+  <div class="links">
+
+    <!-- LinkedIn -->
+    <a
+      class="icon-link"
+      href="https://www.linkedin.com/in/faiza-sultana-36m1827"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="LinkedIn"
+    >
+      <i data-feather="linkedin"></i>
+    </a>
+
+    <!-- Facebook -->
+    <a
+      class="icon-link"
+      href="https://www.facebook.com/login/?locale=en_GB"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Facebook"
+    >
+      <i data-feather="facebook"></i>
+    </a>
+
+  </div>
+
+ 
+  <!-- KOMPETENSER -->
+   <!-- Ändring : added listing tag for each competence section -->
+  <div class="sidebar-section">
+    <h3><i data-feather="star"></i>Kompetenser</h3>
+    <br>
+    <h4>✦ Personliga egenskaper</h4>
+    <ul>
+    <li>Analytisk – Jag tycker om att arbeta med data och hitta mönster</li>
+    <li>Strukturerad – Jag planerar mitt arbete och håller deadlines</li>
+    <li>Samarbetsvillig – Jag kommunicerar bra och trivs med att arbeta i team</li>
+  </ul>
+    <div class="skills-section">
+    <h3>⌘ Teknisk kompetens</h3>
+
+    <div class="skill-tags">
+<!-- Ändring : added box tag by using Span tag -->
+      <span>Google Analytics</span>
+      <span> SQL</span>
+      <span> Power BI</span>
+      <span> Excel</span>
+      <span> HTML & CSS</span>
+    </div>
+  <div class="languages-section">
+    <h3>Språk</h3>
+    <table class="language-table">
+      <tr><td>Svenska</td><td>Goda kunskaper</td></tr>
+      <tr><td>Engelska</td><td>Flytande</td></tr>
+      <tr><td>Urdu & Punjabi</td><td>Modersmål</td></tr>
+    </table>
+  </div>
+  
+</section>
+  </div>
+  
+
+</section>
+      <!-- ======================================================
+           RIGHT COLUMN: THE CV CONTENT
+           ====================================================== -->
+      <section class="w3-threequarter">
+
+        <!-- DESKTOP NAVIGATION (visible on larger screens) -->
+         <!-- ÄNDRING : updated navigaiton, added navigation ref.-->
+          <!-- ÄNDRING : added the ref to another html page by using href-->
+        <div class="w3-container w3-padding-large w3-border-bottom w3-hide-small">
+          <!--<a href="#home" class="w3-bar-item w3-button w3-hover-none w3-border-none w3-bottombar">HEM</a>
+          <a href="#resume" class="nav-link w3-bar-item w3-button w3-hover-none w3-border-none w3-bottombar w3-right">MITT CV</a>-->
+<a href="pages/Faiza%20Sultana.html"
+   class="w3-right nav-button">
+   Mer om mig
+</a>
+  <div class="nav-center">
+    <a href="#home" class="w3-bar-item w3-button w3-hover-none">Mitt CV</a>
+    <a href="#about" class="nav-link">Profil</a>
+    <a href="#erfarenhet" class="nav-link active">Erfarenhet</a>
+    <a href="#utbildning" class="nav-link">Utbildning</a>
+    <div class="nav-right"> </div>
+   </div>
+   </div>
+   </div>
+
+  
+        <div class="content-container w3-margin-top-2">
+
+          <!-- ======================================================
+               HOME SECTION – name, title and quote
+               <! Ändring : introduced banner at home page and in left column>
+               ====================================================== -->
+         <section id="home" class="intro-banner">
+  <div class="intro-content">
+
+    <!-- LEFT SIDE -->
+     
+    <div class="intro-left">
+
+      <h1>Faiza Sultana.</h1>
+      <h2>Digital analytiker i utveckling.</h2>
+      <p class="intro-sub">Nyfiken på data. Driven av insikter.</p>
+
+      <hr />
+
+      <div class="intro-footer">
+        
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE ICON -->
+    <div class="intro-right">
+      <div class="star-icon">✳</div>
+    </div>
+
+  </div>
+</section>
+
+
+
+          <!-- ======================================================
+               ABOUT
+               ====================================================== -->
+<section id="about" class="profile-section">
+  <h2>Profil</h2>
+  <p>
+    Digital Analytics‑student baserad i Borås med ett starkt intresse för data, digital analys och datadrivna arbetssätt. 
+    Jag arbetar strukturerat, analytiskt och lösningsorienterat, med fokus på att skapa värde genom tydliga insikter och välgrundade analyser. 
+    Jag har goda kunskaper i SQL och använder det för att hämta, bearbeta och strukturera data på ett effektivt sätt. 
+    Med en hög grad av nyfikenhet och vilja att utvecklas strävar jag efter att fördjupa min kompetens ytterligare. 
+    Jag söker LIA 1 för att omsätta mina kunskaper i praktiken och bidra med engagemang, struktur och analytisk förmåga i en professionell miljö.
+  </p>
+</section>
+
+<!-- PERSONAL TRAITS SECTION -->
+ <!-- ÄNDRING : added listing to main traits -->
+<div class="traits-section">
+  <ul class="traits-list">
+    <li>Analytisk</li>
+    <li>Strukturerad</li>
+    <li>Samarbetsvillig</li>
+  </ul>
+</div>
+
+          <!-- ======================================================
+        
+               RESUME
+               ====================================================== -->
+          <section id="erfarenhet" class="experience-section">
+  <h2>Arbetslivserfarenhet</h2>
+<!-- ÄNDRING : added the time line and active item class for current Job experience-->
+  <div class="timeline">
+
+    <!-- Frilansare -->
+    <div class="timeline-item active">
+      <div class="timeline-content">
+        <h3>Frilansare</h3>
+        <p class="company">Egen verksamhet</p>
+        <p class="description">
+          Databehandling, analys och presentation av resultat för studenter och lärare.
+          Hjälper kunder att lösa datarelaterade problem och hitta tydliga lösningar.
+        </p>
+        <div class="skills">
+          <span>Excel</span>
+          <span>PowerPoint</span>
+          <span>Dataanalys</span>
+          <span>SQL</span>
+        </div>
+      </div>
+      <div class="timeline-date">Feb 2014 — 2026</div>
+    </div>
+
+    <!-- Kontorschef -->
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h3>Kontorschef</h3>
+        <p class="company">Bauer Pakistan Pvt.Ltd. Lahore, Pakistan</p>
+        <p class="description">
+          Ekonomiadministration, bokföring och fakturahantering.
+          Ansvar för kontorsadministration, HR‑relaterade uppgifter och personaldokumentation.
+        </p>
+      </div>
+      <div class="timeline-date">Nov 2007 — Feb 2014</div>
+    </div>
+
+    <!-- Data- & portföljansvarig -->
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h3>Data‑ & portföljansvarig</h3>
+        <p class="company">Askari Bank · Lahore, Pakistan</p>
+        <p class="description">
+          Ansvarade för datahantering och portföljförvaltning.
+        </p>
+      </div>
+      <div class="timeline-date">Feb 2007 — Nov 2007</div>
+    </div>
+
+  </div>
+</section>
+
+
+            <!-- ---------- EDUCATION ---------- -->
+             <!-- ÄNDRING : added the time line and active item class for current education-->
+
+<section id="utbildning" class="education-section">
+  <h2>Utbildning</h2>
+
+  <!-- Digital analytiker -->
+  <div class="education-item current">
+    <div class="edu-icon">🎓</div>
+    <div class="edu-content">
+      <h3>Digital analytiker <span class="edu-status">(Pågående)</span></h3>
+      <p class="edu-school">Yrkeshögskolan i Borås</p>
+      <p class="edu-years">2026 — 2028</p>
+            <p class="intro-tag">SÖKER LIA 1</p>
+
+      <p class="edu-description">
+        Studerar digital analys med fokus på dataanalys, statistik, visualisering och digitala verktyg.
+      </p>
+    </div>
+  </div>
+
+  <!-- Masterexamen -->
+  <div class="education-item">
+    <div class="edu-icon">🎓</div>
+    <div class="edu-content">
+      <h3>Masterexamen i statistik</h3>
+      <p class="edu-school">Punjab University, Lahore</p>
+      <p class="edu-years">2002 — 2004</p>
+      <p class="edu-description">
+        Dataanalys, statistiska metoder, experimentell design, ekonometri och kvalitetskontroll.
+      </p>
+</section>
+
+<!-- ======================================================
+               INTRESSE
+               ====================================================== -->
+<section id="about" class="profile-section">
+  <h2>Utanför jobb</h2>
+    <li>Bokläsning</li>
+    <li>Datavisualisering och datahantering</li>
+    <li>Resor och upptäckande av nya platser</li>
+    <li>Badminton</li>
+
+  </ul>
+</section>
+
+  <!-- ======================================================
+               REFRENSER
+      ====================================================== -->
+<section id="about" class="profile-section">
+  <h2>Referenser</h2>
+  <p>
+    Referenser lämnas gärna på begäran..
+  </p>
+</section>
+
+          <!-- ======================================================
+               Ändering: changed the footer padding 
+               ====================================================== -->
+          <footer class="w3-container w3-border-top w3-center w3-margin-top-4">
+            <p>© <span id="year"></span> – Faiza Sultana</p>
+            
+
+          </footer>
+
+        </div>
+      </section>
+    </section>
+
+    <!-- ======================================================
+         -- ÄNDRING : updated JAVASCRIPT
+         Placed at the end of <body> so all the HTML has loaded first.
+         ====================================================== -->
+    <script>
+      // Opens/closes the mobile navigation
+               <!-- ÄNDRING : updated navigaiton -->
+
+      function toggleNavigation() {
+        let nav = document.getElementById("mobile-nav");
+        nav.classList.toggle("w3-show");
+      }
+
+      // Draws the icons from Feather Icons
+      feather.replace();
+
+      // Writes the current year in the footer
+      document.getElementById("year").innerText = new Date().getFullYear();
+
+      // ---------- JS EXERCISES (connected to the buttons in the home section) ----------
+
+      // Shows today's date when the page loads
+      function showDate() {
+        document.getElementById("showDate").innerText =
+          "Idag's Datum: " + new Date().toLocaleDateString();
+      }
+      window.onload = showDate;
+
+      // Greets the visitor with the name they typed in the input field
+      function greet() {
+        let name = document.getElementById("firstName").value;
+        document.getElementById("result").innerText =
+          "Hej " + name + ", Välkommen – här är min resa!";
+      }
+
+      // Shows/hides the extra information
+      function showMore() {
+        let info = document.getElementById("extraInfo");
+        if (info.style.display === "none") {
+          info.style.display = "block";
+        } else {
+          info.style.display = "none";
+        }
+      }
+      
+              <!-- ÄNDRING : added the Java script for buttons i second html page -->
+
+        // ---------------------- ABOUT ME PAGE FUNCTIONS ----------------------
+
+// Learn more button
+const learnMoreBtn = document.getElementById("learnMoreBtn");
+if (learnMoreBtn) {
+  learnMoreBtn.addEventListener("click", () => {
+    alert("This button can link to a deeper About Me section or scroll to more content.");
+  });
+}
+
+// Back to CV button
+const backToCvBtn = document.getElementById("backToCvBtn");
+if (backToCvBtn) {
+  backToCvBtn.addEventListener("click", () => {
+    window.location.href = "cv.html"; // Adjust if your CV file name differs
+  });
+      }
+    </script>
+  </body>
+</html>
+
+
+----------   
+
+

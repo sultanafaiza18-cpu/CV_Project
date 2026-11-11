@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+</head>
+
+<body>
+
+    <input type="text" id="firstname" placeholder="Type your name here">
+
+    <button onclick="greet()">Hälsa</button>
+<button onclick="more()">Kort Om mig</button>
+
+    <p id="hello">Hej!</p>
+    <p id="Mer om mig">Kort om mig:
+            <a href="mailto:godown360.com?subject=Kontakt från CV" class="contact-btn">
+
+
+    </p>
+    <p id="DateShow"></p>
+
+    <script>
+
+        function greet() {
+            let name = document.getElementById("firstname").value;
+
+            document.getElementById("Hi!").innerText =
+                "Hej " + name + ", Välkommen till min CV-sida!";
+        }
+
+        function funcDateShow() {
+            document.getElementById("showDate").innerText =
+                "Dagens datum: " + new Date().toLocaleDateString("sv-SE");
+        }
+
+        function more() {
+            document.getElementById("Kort om mig:").innerText =
+                "Kort om mig:" +name+ " Jag är intresserad av dataanalys, digital utveckling och att lära mig nya tekniker.!";
+                
+        }
+
+        window.onload = funcDateShow;
+
+
+
+    </script>
+
+</body>
+</html>

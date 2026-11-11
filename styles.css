@@ -1,0 +1,1224 @@
+/* OVERVIEW
+   Styles the CV page structure, colors, typography, navigation, timeline, and responsive layouts.
+   CSS comments explain the purpose of each major group; they do not affect how the page looks. */
+
+/* THEME VARIABLES
+   Define reusable colors and the main font here. Change these values to update the theme globally. */
+:root {
+  --sidebar-bg: #0d331a;
+  --accent: #0d331a;
+  --icon-color: #a9c48a;
+  --button-bg: #0d331a;
+  --button-hover: #263a2d;
+  --link-hover: #263a2d;
+  --text-color: #0d331a;
+  --font-main: "Montserrat", sans-serif;
+  --green-light: #a9c48a;
+  --green-pale: #d3e8da;
+}
+
+/* BOX SIZING
+   Include padding and borders in element dimensions so widths are easier to control. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* PAGE RESET
+   Remove browser-default spacing and ensure the document can fill the viewport. */
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0px;
+  padding: 0px;
+  padding-bottom: 40px;
+}
+
+/* GLOBAL TYPOGRAPHY AND COLORS
+   Set the page background, default text color, and main font. */
+body {
+  background: var(--green-light);
+  color: var(--text-color);
+  font-family: var(--font-main);
+}
+
+body * {
+  font-family: var(--font-main);
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: normal;
+}
+
+a {
+  color: inherit;
+}
+
+.nav-button {
+  padding: 6px 18px;
+  border: 1px solid #0b3d2e;
+  border-radius: 25px;
+  background-color: transparent;
+  color: #0b3d2e;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: #0b3d2e;
+  color: #a8c48c;
+}
+
+/* W3.CSS HELPERS
+   Preserve a few utility classes used by the HTML for borders, padding, margins, and sticky positioning. */
+.w3-bottombar {
+  border-bottom: 2px solid var(--accent) !important;
+}
+
+.w3-container,
+.w3-panel {
+  padding: 0.01em 16px;
+}
+
+.w3-container.header {
+  padding-top: 0 !important;
+  margin-top: -20px !important;
+}
+
+.w3-margin-top-2 {
+  margin-top: 10px;
+}
+
+.w3-margin-top-4 {
+  margin-top: 20px;
+}
+
+.w3-sticky {
+  position: sticky;
+  top: 0;
+}
+
+/* SIDEBAR / PROFILE PANEL
+   The left column stays fixed on desktop and contains the profile image, contact details, links, skills, and languages. */
+.image-section {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 25%;
+  height: 100vh;
+  padding: 25px 30px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--sidebar-bg) url("https://static.vecteezy.com/system/resources/thumbnails/041/918/371/small/abstract-elegant-gradient-background-illustration-vector.jpg");
+  color: var(--green-light);
+}
+
+/* Profile name and role are centered at the top of the sidebar. */
+.profile-header {
+  width: 100%;
+  text-align: center;
+  color: var(--green-pale);
+  margin-bottom: 24px;
+}
+
+.profile-logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--green-pale);
+  margin-bottom: 10px;
+}
+
+/* Profile photo dimensions, crop, and border. object-fit: cover fills the square without stretching the photo. */
+.image-section .profile-img {
+  display: block;
+  width: 160px;
+  height: 160px;
+  max-width: 90%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  margin: 20px auto;
+  border: 3px solid var(--icon-color) !important;
+}
+
+.profile-header h1 {
+  font-size: 21px;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  ;
+  color: var(--green-light);
+  margin: 0 0 5px;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: var(--green-light);
+  margin: 0 0 14px;
+}
+
+/* Download link styled as a button; the hover rule below changes its colors. */
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border: 1px solid var(--green-light);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--green-light);
+  text-decoration: none;
+  transition: background-color .2s ease, color .2s ease;
+}
+
+.download-btn:hover {
+  background: var(--green-light);
+  color: var(--sidebar-bg);
+}
+
+/* Contact details block and its heading/body text. */
+.contact-info {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.contact-info h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 10px;
+  color: var(--green-light);
+}
+
+.contact-info p {
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 4px 0;
+}
+
+/* Social/external icon links: flex layout centers the icons and adds even spacing. */
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  margin: 5px 0 18px;
+  padding: 0;
+}
+
+.icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  color: var(--icon-color);
+  text-decoration: none;
+  transition: color .2s ease, transform .2s ease;
+}
+
+.icon-link svg {
+  width: 24px;
+  height: 24px;
+}
+
+.icon-link:hover {
+  color: var(--green-pale);
+  transform: translateY(-2px);
+}
+
+/* Sidebar content groups such as skills and languages, separated with subtle lines. */
+.image-section .sidebar-section {
+  width: 100%;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(169, 196, 138, .35);
+  text-align: left;
+}
+
+.image-section .sidebar-section h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  margin: 12px 0 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--green-light);
+}
+
+.image-section .sidebar-section h3 svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--green-light);
+}
+
+.image-section .sidebar-section h4 {
+  margin: 15px 0 7px;
+  font-size: 14px;
+}
+
+.sidebar-section ul {
+  padding-left: 20px;
+  margin: 8px 0 16px;
+}
+
+.sidebar-section li {
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+/* Shared heading appearance for the Skills and Languages sidebar sections. */
+.skills-section h3,
+.languages-section h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--green-light);
+  margin: 14px 0 10px;
+}
+
+/* Skills appear as compact colored tags rather than a plain text list. */
+.skill-tags span {
+  display: inline-block;
+  background: var(--green-light);
+  border: 1px solid var(--green-light);
+  color: var(--sidebar-bg);
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 5px;
+  margin: 3px;
+}
+
+/* Language table sizing, text color, and collapsed borders. */
+.language-table {
+  width: 100%;
+  font-size: 12px;
+  color: var(--green-light);
+  border-collapse: collapse;
+}
+
+.language-table td {
+  padding: 4px 3px;
+  vertical-align: top;
+}
+
+.language-table td:first-child {
+  font-weight: 600;
+}
+
+/* MAIN CONTENT COLUMN
+   Offset the main area by the sidebar width on desktop, then center its inner content. */
+.w3-threequarter {
+  width: 75% !important;
+  margin-left: 25%;
+  float: none !important;
+  padding: 0 35px 60px !important;
+}
+
+.content-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* NAVIGATION BAR
+   Controls the brand/label, centered page links, and contact button across the top. */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 50px 20px;
+  background: var(--green-light);
+  border-bottom: 2px solid var(--accent);
+}
+
+.nav-left {
+  flex: 1;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.nav-left span {
+  display: inline-block;
+  line-height: 1.1;
+}
+
+/* Keep the navigation links in a centered row; responsive rules allow them to wrap on smaller screens. */
+.nav-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  white-space: nowrap;
+}
+
+.navbar a,
+.nav-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: color .2s ease, border-color .2s ease;
+}
+
+.nav-link {
+  border-color: var(--accent) !important;
+}
+
+.navbar a:hover,
+.nav-link:hover {
+  color: var(--link-hover);
+}
+
+.nav-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Shared filled, rounded button styling for the navigation contact action. */
+.nav-right a,
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: 1px solid var(--green-light);
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--green-light);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color .2s ease, color .2s ease;
+}
+
+.nav-right a:hover,
+.contact-btn:hover {
+  background: transparent;
+  color: var(--accent);
+}
+
+/* INTRO / HERO BANNER
+   The top promotional area uses a background image, headline, supporting text, action link, and decorative symbol. */
+.intro-banner {
+  background: var(--sidebar-bg) url("https://static.vecteezy.com/system/resources/thumbnails/041/918/371/small/abstract-elegant-gradient-background-illustration-vector.jpg") center / cover no-repeat;
+  padding: 60px 60px;
+  border-radius: 8px;
+  margin: 20px auto;
+  color: var(--green-light);
+}
+
+/* Lay out the intro copy and decorative symbol side by side on wider screens. */
+.intro-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.intro-left {
+  flex: 1;
+}
+
+.intro-left h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.intro-left h2 {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 0 10px;
+}
+
+.intro-sub {
+  font-size: 15px;
+  color: var(--green-pale);
+  margin-bottom: 24px;
+}
+
+.intro-footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+/* Intro call-to-action button and its hover state. */
+.learn-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: 1px solid var(--green-light);
+  border-radius: 999px;
+  color: var(--green-light);
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color .2s ease, color .2s ease;
+}
+
+.learn-btn:hover {
+  background: var(--green-light);
+  color: var(--sidebar-bg);
+}
+
+.arrow {
+  font-size: 18px;
+}
+
+.intro-right {
+  flex: 0 0 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.star-icon {
+  font-size: 80px;
+  font-weight: 300;
+  color: var(--green-pale);
+  text-align: center;
+}
+
+/* PROFILE SUMMARY AND TRAITS
+   Style the professional summary paragraph and the check-mark list of strengths or traits. */
+.profile-section {
+  width: 100%;
+  margin-top: 30px;
+  padding: 10px 0;
+  background: transparent;
+  color: var(--accent);
+}
+
+.profile-section h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0 0 10px;
+  letter-spacing: .3px;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 6px;
+}
+
+.profile-section p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--accent);
+  margin: 15px 0 0;
+  max-width: 1000px;
+  text-align: left;
+  hyphens: auto;
+}
+
+.traits-section {
+  padding: 16px 0;
+  text-align: left;
+}
+
+.traits-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 16px 32px;
+  margin: 0;
+  padding: 0;
+}
+
+.traits-list li {
+  font-size: 15px;
+  color: var(--accent);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Add a check mark before each trait through CSS, so no extra symbol is needed in the HTML. */
+.traits-list li::before {
+  content: "✓";
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* EXPERIENCE TIMELINE
+   Build the vertical timeline line, entry dots, job titles, company names, descriptions, skill tags, and dates. */
+.experience-section,
+.education-section {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0;
+  color: var(--accent);
+}
+
+.experience-section h2,
+.education-section h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 32px;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 8px;
+}
+
+/* The left border forms the timeline line running through all entries. */
+.timeline {
+  position: relative;
+  margin: 0 0 0 20px;
+  padding: 0;
+  border-left: 2px solid var(--accent);
+}
+
+.timeline-item {
+  position: relative;
+  padding: 20px 130px 20px 40px;
+}
+
+/* The pseudo-element creates a dot for each timeline entry. */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -9px;
+  top: 28px;
+  width: 14px;
+  height: 14px;
+  background: var(--green-light);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+}
+
+.timeline-item.active::before {
+  background: var(--accent);
+}
+
+.timeline-content h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.timeline-content .company {
+  font-style: italic;
+  color: var(--accent);
+  margin: 0 0 10px;
+}
+
+.timeline-content .description {
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0 0 10px;
+}
+
+.skills span {
+  display: inline-block;
+  background: var(--green-light);
+  color: var(--accent);
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin: 6px 8px 0 0;
+}
+
+/* Position each date at the right edge of its entry on desktop; mobile rules move it above the entry. */
+.timeline-date {
+  position: absolute;
+  right: 0;
+  top: 20px;
+  font-size: 13px;
+  color: var(--accent);
+}
+
+/* EDUCATION ENTRIES
+   Arrange each qualification with an icon, title, status, institution, dates, and description. */
+.education-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.edu-icon {
+  flex-shrink: 0;
+  font-size: 28px;
+  background: #e8f5e9;
+  color: var(--accent);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.edu-content h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.edu-status {
+  display: inline-block;
+  background: var(--green-light);
+  color: var(--accent);
+  font-size: 13px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin-left: 8px;
+}
+
+.edu-school {
+  font-style: italic;
+  color: #222;
+  margin: 0 0 4px;
+}
+
+.edu-years {
+  font-size: 14px;
+  color: #333;
+  margin: 0 0 10px;
+}
+
+.edu-description {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--accent);
+  margin-top: 0;
+}
+
+/* Give the current education item a stronger icon color to distinguish it from past entries. */
+.education-item.current .edu-icon {
+  background: var(--accent);
+  color: var(--green-light);
+}
+
+.intro-tag {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 13px;
+  margin: 0 0 12px;
+}
+
+/* FOOTER
+   Keep footer text centered and consistent with the page theme. */
+footer {
+  color: var(--accent);
+  text-align: center;
+
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #a8c48c;
+  text-align: center;
+  padding: 10px 0;
+}
+
+
+/* RESPONSIVE LAYOUT
+   These media queries adapt spacing and layout to medium screens, tablets, and small phones. */
+/* MEDIUM SCREENS: reduce padding and allow navigation elements to wrap. */
+@media (max-width: 1100px) {
+  .image-section {
+    padding: 20px 16px;
+  }
+
+  .w3-threequarter {
+    padding: 0 35px 20px !important;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+    padding: 14px 10px;
+  }
+
+  .nav-center {
+    gap: 20px;
+  }
+
+  .intro-banner {
+    padding: 44px 36px;
+  }
+}
+
+/* TABLETS / MOBILE: move the sidebar into normal page flow, use full-width content, and stack the hero. */
+@media (max-width: 768px) {
+  .image-section {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+  }
+
+  .w3-threequarter {
+    width: 100% !important;
+    margin-left: 0;
+    padding: 0 20px 40px !important;
+  }
+
+  .nav-center {
+    flex-wrap: wrap;
+  }
+
+  .intro-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .intro-banner {
+    padding: 36px 24px;
+  }
+
+  .intro-left h1 {
+    font-size: 36px;
+  }
+
+  .intro-left h2 {
+    font-size: 22px;
+  }
+
+  .timeline-item {
+    padding-right: 0;
+    padding-top: 52px;
+  }
+
+  .timeline-date {
+    left: 40px;
+    right: auto;
+    top: 18px;
+  }
+
+  .traits-list {
+    gap: 12px 20px;
+  }
+}
+
+/* SMALL PHONES: stack navigation groups and reduce spacing and icon sizes. */
+@media (max-width: 600px) {
+  .navbar {
+    align-items: flex-start;
+  }
+
+  .nav-left,
+  .nav-center,
+  .nav-right {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+
+  .profile-section {
+    margin-top: 32px;
+  }
+
+  .education-item {
+    gap: 12px;
+  }
+
+  .edu-icon {
+    font-size: 22px;
+    padding: 8px;
+  }
+}
+
+/*New Page*/
+
+:root {
+  --bg: #a9c48a;
+  --card-bg: #a9c48a;
+  --border: #002510;
+  --text-main: #002510;
+  --text-muted: #002510;
+  --accent: #002510;
+  --accent-soft: #a9c48a;
+  --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.04);
+  --radius-card: 14px;
+  --radius-pill: 999px;
+  --font-heading: "Montserrat", system-ui, -apple-system, sans-serif;
+  --font-body: "Open Sans", system-ui, -apple-system, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Top nav */
+
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 40px;
+  gap: 40px;
+  background: #a9c48a;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.top-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.top-nav a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.top-nav a:hover {
+  color: var(--accent);
+}
+
+.ai-tag {
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* Page wrapper */
+
+.page-wrapper {
+  max-width: 1200px;
+  margin: 32px auto 40px;
+  padding: 0 20px;
+}
+
+.page-title h1 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  margin-bottom: 24px;
+}
+
+/* Cards grid */
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+  padding: 20px 22px;
+  border: 2px solid #0d331a;
+  ;
+}
+
+.card h2 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  margin: 0 0 14px;
+}
+
+/* Hello card */
+
+.card-hello-content {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.profile-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-soft);
+}
+
+.card-hello p {
+  margin: 0;
+  color: #0d331a;
+}
+
+/* Timeline */
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.timeline li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.timeline-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.timeline-content h3 {
+  margin: 0 0 4px;
+  font-size: 0.98rem;
+}
+
+.timeline-content p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: none;
+}
+
+
+/* Inner skill cards */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* two columns */
+  gap: 20px;
+  /* space between cards */
+}
+
+.skill-item {
+  background-color: transparent;
+  /* lighter green for contrast */
+  border: 1px solid #0d331a;
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.skill-icon {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.skill-item h3 {
+  margin: 0 0 4px;
+  font-size: 0.95rem;
+}
+
+.skill-item p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #0d331a;
+}
+
+/* Beyond work */
+
+.beyond-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.beyond-item {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #a9c48a;
+  border: 1px solid var(--border);
+}
+
+.beyond-icon {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.beyond-item h3 {
+  color: #0d331a;
+  font-size: 0.9rem;
+  margin: 0 0 4px;
+  font-size: 0.95rem;
+}
+
+.beyond-item p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #0d331a;
+}
+
+/* Buttons */
+
+.btn {
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #a9c48a;
+}
+
+.btn.primary:hover {
+  background: #002510;
+  transform: translateY(-1px);
+}
+
+.btn.secondary {
+  background: #a9c48a;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.btn.secondary:hover {
+  background: var(--accent-soft);
+}
+
+/* CTA wrapper */
+
+.cta-wrapper {
+  margin-top: 28px;
+  text-align: center;
+}
+
+/* Footer */
+
+.footer {
+  text-align: right;
+  margin-top: none;
+  padding: 2px 10px 4px;
+  /* reduced bottom padding */
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  /* small space above footer */
+}
+
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-hello-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .top-nav {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px 16px;
+  }
+
+  .page-wrapper {
+    margin-top: 20px;
+  }
+}
+
+.box {
+  border: 1px solid #0b3d2e;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #a8c48c;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+
+  .card-skills {
+    border: 1px solid #0b3d2e;
+    /* same border color */
+    border-radius: 10px;
+    /* same rounded corners */
+    background-color: #a8c48c;
+    /* same green background */
+    padding: 20px;
+    /* same inner spacing */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* subtle depth */
+    margin-bottom: 20px;
+    /* spacing below */
+  }
+
+  /* Optional: make skill items look consistent */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+  }
+
+  .skill-item {
+    background-color: #a8c48c;
+    border: 1px solid #0b3d2e;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .skill-item h3 {
+    margin-top: 5px;
+    color: #0b3d2e;
+  }
+
+  .skill-item p {
+    font-size: 0.9rem;
+    color: #0b3d2e;
+  }
+
+  .card-outside {
+    border: 1px solid #0b3d2e;
+    border-radius: 10px;
+    background-color: #a8c48c;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+
+  .outside-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .outside-item {
+    border: 1px solid #0b3d2e;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #a8c48c;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .outside-item h3 {
+    margin-top: 5px;
+    color: #0b3d2e;
+  }
+
+  .outside-item p {
+    font-size: 0.9rem;
+    color: #0b3d2e;
+  }
+}
